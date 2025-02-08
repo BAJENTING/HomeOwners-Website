@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+}
+.left {
+    width: 50%;
+}
+.right {
+    background-color: #BFD1DF;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 0px;
+    transition: transform 0.2s;
+    width: 50%;
+    text-align: center;
+}
