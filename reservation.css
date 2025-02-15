@@ -1,41 +1,75 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
-    gap: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 50px;
+    background: linear-gradient(to bottom right, #eef1f5, #dfe6ec);
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
 }
 
 /* Card Styling */
 .card {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    width: 45%;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 30px;
+    width: 420px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Position "Make a Reservation" Card in Upper Right */
+.card.reservation {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 /* Facility Buttons */
 .facility-button {
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
-    background-color: #e0e0e0;
-    border: none;
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0;
+    background: black;
+    border: 2px solid transparent;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration-color:black;
 }
 
 .facility-button:hover {
-    background-color: #ccc;
+    background: #e4e9f2;
 }
 
 .selected {
-    background-color: blue;
+    background: #007bff;
     color: white;
+    font-weight: bold;
+    border-color: #0056b3;
 }
 
 /* Form Styling */
@@ -43,20 +77,40 @@ input, button {
     display: block;
     width: 100%;
     margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
     font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
 }
 
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+/* Submit Button */
 button {
-    background-color: #007bff;
-    color:black;
+    background: #007bff;
+    color:black ;
+    font-weight: 600;
     cursor: pointer;
     border: none;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: #0056b3;
+    transform: scale(1.03);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .card.reservation {
+        position: static;
+        width: 100%;
+        max-width: 420px;
+        margin-top: 20px;
+    }
 }
