@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility Reservation</title>
+    <link rel="stylesheet" href="reservation.css">
+</head>
+<body>
+    <div class="card">
+        <h2>Available Facilities</h2>
+        <div id="facility-list">
+            <button class="facility-button">Swimming Pool</button>
+            <button class="facility-button">Gym</button>
+            <button class="facility-button">Ball Room</button>
+            <button class="facility-button">Clubhouse</button>
+            <button class="facility-button">Basketball Court</button>
+            <button class="facility-button">Tennis Court</button>
+            <button class="facility-button">Multi-purpose Hall</button>
+            <button class="facility-button">Function Room</button>
+            <button class="facility-button">Badminton Court</button>
+            <button class="facility-button">Pet Park</button>
+            <button class="facility-button">Playground</button>
+            <button class="facility-button">Lounge Areas</button>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>Make a Reservation</h2>
+        <form id="reservation-form">
+            <input type="text" id="name" placeholder="Enter Complete Name" required>
+            <input type="text" id="houseNumber" placeholder="Enter your House Number" required>
+            <input type="text" id="purpose" placeholder="State Purpose" required>
+            <input type="date" id="date" required>
+            <button type="submit">Send Request</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const facilityButtons = document.querySelectorAll(".facility-button");
+            let selectedFacility = "";
+
+            facilityButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    facilityButtons.forEach(btn => btn.classList.remove("selected"));
+                    button.classList.add("selected");
+                    selectedFacility = button.textContent;
+                });
+            });
+
+            document.getElementById("reservation-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+                
+                const name = document.getElementById("name").value;
+                const houseNumber = document.getElementById("houseNumber").value;
+                const purpose = document.getElementById("purpose").value;
+                const date = document.getElementById("date").value;
+
+                if (!selectedFacility) {
+                    alert("Please select a facility");
+                    return;
+                }
+
+                fetch("/check-availability", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ facility: selectedFacility, date: date })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.available) {
+                        alert(`✅ Reservation Confirmed!\nName: ${name}\nHouse Number: ${houseNumber}\nFacility: ${selectedFacility}\nPurpose: ${purpose}\nDate: ${date}`);
+                    } else {
+                        alert("❌ Sorry, this facility is not available on the selected date.");
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+    </script>
+    <script src="reservation.js"></script>
+</body>
+</html>
