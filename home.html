@@ -4,25 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="homes.css">
+    <link rel="stylesheet" href="homes.css"> <!-- Your existing styles -->
+    <link rel="stylesheet" href="slideshow.css"> <!-- Slideshow styles -->
 </head>
-
-
-
-
 <body>
-    <header style="background-color: #c4B2B0; padding: 10px; margin-left: 0px;">
-        <img src ="images/Homepage.png" height="50px" width="90px">
-        <img src = "images/bell.png" height="40px" width="40px" style="float: right; margin-top: 2.5px;">
+    <header>
+        <img src="images/Homepage.png" height="50px" width="90px">
+        <img src="images/bell.png" height="40px" width="40px" class="bell">
     </header>
 
-    <div style="display: contents;">
+    <div class="slideshow-container">
+        <span class="arrow left-arrow" onclick="changeSlide(-1)">&#8592;</span> <!-- Left Arrow -->
         
-            <img src="images/Bill.png" alt="bill" class="bill">
-            <img src="images/FRDR.png" alt="FRDR" class="FRDR">
-            <img src="images/Forum.png" alt="Forum" class="Forum">
+        <div class="slide-track">
+            <div class="slide">
+                <div class="card">
+                    <img src="images/Bill.png" alt="Billing and Payment">
+                    <h3>Billing and Payment</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="card">
+                    <img src="images/FRDR.png" alt="Facility Reservation">
+                    <h3>Facility Reservation & Service Request</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="card">
+                    <img src="images/Forum.png" alt="Forum">
+                    <h3>Forum</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="card">
+                    <img src="images/Bill.png" alt="Billing and Payment">
+                    <h3>Billing and Payment</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="card">
+                    <img src="images/FRDR.png" alt="Facility Reservation">
+                    <h3>Facility Reservation & Service Request</h3>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="card">
+                    <img src="images/Forum.png" alt="Forum">
+                    <h3>Forum</h3>
+                </div>
+            </div>
+        </div>
+
+        <span class="arrow right-arrow" onclick="changeSlide(1)">&#8594;</span> <!-- Right Arrow -->
     </div>
-   
-    <footer style="background-color: #c4B2B0; padding: 10px; text-align: center;">BALAY NA HOMES</footer>
+
+    <footer><h2>BALAY NA HOMES</h2></footer>
+
+    <script>
+        let currentIndex = 0;
+        const slidesToShow = 3;
+        const slideWidth = 300; // Width of each card
+        const slideTrack = document.querySelector('.slide-track');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function changeSlide(direction) {
+            currentIndex += direction;
+
+            // Loop back to the start or end
+            if (currentIndex < 0) {
+                currentIndex = totalSlides - slidesToShow;
+            } else if (currentIndex > totalSlides - slidesToShow) {
+                currentIndex = 0;
+            }
+
+            slideTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+    </script>
 </body>
 </html>
