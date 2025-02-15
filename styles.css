@@ -9,7 +9,7 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     padding: 10px 10px;
     transition: transform 0.2s;
-    margin: 20%;
+    margin: 10%;
     text-align: center;
     width: 60%;
 
@@ -46,4 +46,15 @@ input {
 
 .homeButton:hover {
     opacity: 0.8;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #c4B2B0;
+    text-align: center;
+    padding: 10px 0;
 }
