@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing and Payment</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <div class="container">
+        <header style="background-color: #c4B2B0; padding: 10px; margin-left: 0px;">
+            <img src ="images/Homepage.png" height="50px" width="80px">
+            <input type="text" placeholder="Search..." class="search-bar">
+            <img src = "images/bell.png" height="40px" width="40px" style="float: right; margin-top: 2.5px;">
+            
+        </header>
+
+        <main>
+            <div class="billing-box">
+                <h3>Road and Infrastructure Maintenance Fee <span>January 2025</span></h3>
+                <p><strong>Resident:</strong> Carla N. Hacuman</p>
+                <p class="amount"><strong>Amount to be paid:</strong> <span>₱500.00</span></p>
+                <p>Please select your payment method:</p>
+
+                <div class="payment-options">
+                    <button class="cash" onclick="processPayment('Cash')">Cash - Pay at main building</button>
+                    <button class="paypal" onclick="processPayment('PayPal')">PayPal - Pay within this week</button>
+                    <button class="gcash" onclick="processPayment('Gcash')">Gcash - Pay within this week</button>
+                    <button class="maya" onclick="processPayment('Maya')">Maya - Pay within this week</button>
+                    <button class="union" onclick="processPayment('Union Bank')">Union Bank - Pay within this week</button>
+                    <button class="visa" onclick="processPayment('VISA')">VISA - Pay within this week</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 BALAY NI HOMES</p>
+        </footer>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>

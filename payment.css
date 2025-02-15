@@ -1,0 +1,100 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+.logo {
+    width: 50px;
+}
+
+.search-bar {
+    padding: 8px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Billing Box */
+.billing-box {
+    margin-top: 20px;
+}
+
+h3 {
+    color: #333;
+}
+
+h3 span {
+    font-size: 16px;
+    color: #555;
+}
+
+.amount span {
+    color: red;
+    font-weight: bold;
+}
+
+/* Payment Buttons */
+.payment-options {
+    margin-top: 20px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.cash { background: #FFD700; color: black; }
+.paypal { background: #0070ba; }
+.gcash { background: #0070ba; }
+.maya { background: #008000; }
+.union { background: #d9534f; }
+.visa { background: #2b3e7e; }
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;
+}
