@@ -5,41 +5,224 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facility Reservation</title>
     <link rel="stylesheet" href="reservation.css">
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            background: #c4b2b0;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav img {
+            height: 50px;
+        }
+
+        .notification-icon {
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+        }
+
+        /* BODY STYLING */
+        body {
+            background: #f5f6fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px; /* Space for navbar */
+            min-height: 100vh;
+        }
+
+        /* FLEX CONTAINER */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 80%;
+            max-width: 1000px;
+            gap: 20px;
+        }
+
+        /* CARD STYLING */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            width: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* FACILITY BUTTONS */
+        .facility-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 6px 0;
+            background: #e3e4e8;
+            border: 2px solid transparent;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .facility-button:hover {
+            background: #d1d3d8;
+        }
+
+        .selected {
+            background: #007bff;
+            color: white;
+            border-color: #0056b3;
+        }
+
+        /* FORM STYLING */
+        input, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        /* SUBMIT BUTTON */
+        button {
+            background: #007bff;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+            transform: scale(1.03);
+        }
+
+        /* MODAL STYLING */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+            z-index: 1000;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="card">
-        <h2>Available Facilities</h2>
-        <div id="facility-list">
-            <button class="facility-button">Swimming Pool</button>
-            <button class="facility-button">Gym</button>
-            <button class="facility-button">Ball Room</button>
-            <button class="facility-button">Clubhouse</button>
-            <button class="facility-button">Basketball Court</button>
-            <button class="facility-button">Tennis Court</button>
-            <button class="facility-button">Multi-purpose Hall</button>
-            <button class="facility-button">Function Room</button>
-            <button class="facility-button">Badminton Court</button>
-            <button class="facility-button">Pet Park</button>
-            <button class="facility-button">Playground</button>
-            <button class="facility-button">Lounge Areas</button>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <img src="images/Homepage.png" alt="Logo">
+        <img src="images/bell.png" class="notification-icon" alt="Notifications">
+    </nav>
+
+    <!-- FLEX CONTAINER -->
+    <div class="container">
+        <!-- Available Facilities -->
+        <div class="card">
+            <h2>Available Facilities</h2>
+            <div id="facility-list">
+                <button class="facility-button">Swimming Pool</button>
+                <button class="facility-button">Gym</button>
+                <button class="facility-button">Ball Room</button>
+                <button class="facility-button">Clubhouse</button>
+                <button class="facility-button">Basketball Court</button>
+                <button class="facility-button">Tennis Court</button>
+                <button class="facility-button">Multi-purpose Hall</button>
+                <button class="facility-button">Function Room</button>
+                <button class="facility-button">Badminton Court</button>
+                <button class="facility-button">Pet Park</button>
+                <button class="facility-button">Playground</button>
+                <button class="facility-button">Lounge Areas</button>
+            </div>
+        </div>
+
+        <!-- Reservation Form -->
+        <div class="card">
+            <h2>Make a Reservation</h2>
+            <form id="reservation-form">
+                <input type="text" id="name" placeholder="Enter Complete Name" required>
+                <input type="text" id="houseNumber" placeholder="Enter your House Number" required>
+                <input type="text" id="purpose" placeholder="State Purpose" required>
+                <input type="date" id="date" required>
+                <button type="submit">Send Request</button>
+            </form>
         </div>
     </div>
-    
-    <div class="card">
-        <h2>Make a Reservation</h2>
-        <form id="reservation-form">
-            <input type="text" id="name" placeholder="Enter Complete Name" required>
-            <input type="text" id="houseNumber" placeholder="Enter your House Number" required>
-            <input type="text" id="purpose" placeholder="State Purpose" required>
-            <input type="date" id="date" required>
-            <button type="submit">Send Request</button>
-        </form>
+
+    <!-- MODAL FOR NOTIFICATION -->
+    <div class="modal-overlay"></div>
+    <div class="modal" id="notificationModal">
+        <p id="modal-message"></p>
+        <button id="confirmBtn">Confirm</button>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const facilityButtons = document.querySelectorAll(".facility-button");
             let selectedFacility = "";
+
+            const modal = document.getElementById("notificationModal");
+            const modalMessage = document.getElementById("modal-message");
+            const modalOverlay = document.querySelector(".modal-overlay");
+            const confirmBtn = document.getElementById("confirmBtn");
 
             facilityButtons.forEach(button => {
                 button.addEventListener("click", function() {
@@ -51,34 +234,31 @@
 
             document.getElementById("reservation-form").addEventListener("submit", function(event) {
                 event.preventDefault();
-                
                 const name = document.getElementById("name").value;
                 const houseNumber = document.getElementById("houseNumber").value;
                 const purpose = document.getElementById("purpose").value;
                 const date = document.getElementById("date").value;
 
                 if (!selectedFacility) {
-                    alert("Please select a facility");
+                    showModal("❌ Please select a facility.");
                     return;
                 }
 
-                fetch("/check-availability", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ facility: selectedFacility, date: date })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.available) {
-                        alert(`✅ Reservation Confirmed!\nName: ${name}\nHouse Number: ${houseNumber}\nFacility: ${selectedFacility}\nPurpose: ${purpose}\nDate: ${date}`);
-                    } else {
-                        alert("❌ Sorry, this facility is not available on the selected date.");
-                    }
-                })
-                .catch(error => console.error("Error:", error));
+                showModal(`✅ Reservation Confirmed!<br>Facility: ${selectedFacility}`);
+            });
+
+            function showModal(message) {
+                modalMessage.innerHTML = message;
+                modal.style.display = "block";
+                modalOverlay.style.display = "block";
+            }
+
+            confirmBtn.addEventListener("click", function() {
+                modal.style.display = "none";
+                modalOverlay.style.display = "none";
             });
         });
     </script>
-    <script src="reservation.js"></script>
+
 </body>
 </html>
