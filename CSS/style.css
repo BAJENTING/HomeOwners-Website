@@ -1,0 +1,251 @@
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/background1.jpeg);
+    background-size: cover;
+    background-position: center;
+    padding: 10px 8px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    text-align: right;
+    margin-right: 8%;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+    margin: 5px 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Sigmar", serif;
+    font-size: 15px;
+    letter-spacing: 1.2px;
+    transition: background-color 0.5s ease, padding 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgb(112, 112, 112); /* Add some hover effect to the link*/
+    padding: 5px;
+}
+
+nav ul li:hover .hover-container {
+    display: block; /* Show the hover-container when the li is hovered */
+}
+
+.hover-container {
+    position: absolute;
+    top: 150%; /* Position it directly below the list item */
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    display: none; /* Initially hidden */
+    border-radius: 10px;
+}
+
+.hover-container p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.hover-container a {
+    text-decoration: underline;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction:column; /* Stacks items vertically */
+}
+
+.contact-info img {
+    margin-right: 8px;  /* Space between the icon and text */
+    margin-left: 0; /* Ensure icons align to the left */
+}
+
+nav .logo {
+    font-family: "Pacifico", serif;
+    font-size: 20px; 
+    display: flex;
+}
+
+nav .logo a {
+    text-decoration: none;
+    color: white;
+    box-shadow: inset 0 0 0 0 rgb(75, 74, 74);
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .6s ease-in-out, box-shadow .4s ease-in-out;
+}
+
+nav .logo a:hover {
+    box-shadow: inset 200px 0 0 0 white;
+    color: black;
+}
+
+.content {
+    margin-top: 11%;
+    margin-left: 5%;
+    color: #fff;
+    max-width: 620px;
+}
+
+.content h1 {
+    font-family: "Playfair Display SC", serif;
+    font-size: 70px;
+    font-weight: 500;
+    letter-spacing: 10px;
+    line-height: 80px;
+    margin-bottom: 25px;
+}
+
+.content p {
+    font-family: "Dancing Script", serif;
+    font-size: 20px;
+}
+
+
+.divider {
+    width: 1px;
+    background-color: #ffffff;
+    height: 50%;
+}
+
+
+/*   Login Form   */
+
+.form {
+    width: 250px;
+    height: 380px;
+    background: linear-gradient(135deg, rgb(95, 125, 141), rgb(85, 85, 85));
+    position: absolute;
+    top: 25%;
+    left: 75%;
+    border-radius: 25px;
+    padding: 25px;
+}
+
+.form h2 {
+    width: 200px;
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    text-align: center;
+    margin: 2px 20px;
+    padding: 8px;
+    color: #fff;
+    /*
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+    color: transparent;
+    background-clip: text;
+    */
+}
+
+.form input {
+    width: 240px;
+    height: 30px;
+    background: transparent;
+    border: 2px solid  #fff;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    padding-left: 10px;
+    font-family: "Poppins", serif;
+}
+
+.form input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: #fff;
+    font-family: "Poppins", serif;
+}
+
+.btn {
+    width: 240px;
+    height: 40px;
+    background: rgb(75, 74, 74);
+    border: none;
+    margin: 30px 8px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn:hover {
+    background: #fff;
+    color: black;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.form .link {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.form .link a {
+    text-decoration: none;
+    color:  rgb(0, 64, 99);
+}
+
+.liw {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.icons a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.icons ion-icon {
+    color: #fff;
+    font-size: 30px;
+    padding-left: 14px;
+    padding-top: 5px;
+    transition: 0.3s ease;
+}
+
+.icon ion-icon:hover {
+    color: #8c719b;
+
+}
+
+/* Footer */
+footer {
+    font-family: "Poppins", serif;
+    font-size: 10px;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    position: absolute;
+
+}
