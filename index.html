@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Owner Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Pacifico&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sigmar&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="CSS/style.css">
 </head>
-<body>
+<body">
     <div class="container">
         <nav>
             <div class="logo"><a href="images/Balay-na-Homes.mp4">Balay na Homes</a></div>
@@ -25,8 +26,6 @@
                         <div class="contact-info">
                             <img src="images/vecteezy_phone-icon.png" style="width: 24px;" height="24px">
                             <p>(555) 123-4567</p>
-                            <img src="images/location.png" style="width: 24px;" height="24px">
-                            <p>Sanciangko St, Cebu City, 6000 Cebu</p>
                         </div>
                     </div>
                 </li>
@@ -34,7 +33,17 @@
                     <div class="hover-container">
                         <h3>Privacy Policy</h3>
                         <p>At Balay na Homes, we collect personal information to improve our services and provide support. We implement security measures to protect your data, and we do not sell or rent your information to third parties. You have the right to access, update, or delete your data, and can opt out of promotional communications at any time.</p>
-                        <a href="#">Want to know more?</a>
+                </li>
+                <li><a href="#">Our Team</a>
+                    <div class="hover-container">
+                        <h3>Meet the Team!</h3>
+                        <p>Jingle Otome Decierdo</p>
+                        <p>Carla Hacuman</p>
+                        <p>John 1</p>
+                        <p>John 2</p>
+                        <p>John 3</p>
+                    </div>
+
                 </li>
             </ul>
             <!--   Top Navigation Items   -->
@@ -51,29 +60,39 @@
         <!--   Login/Signup Form   -->
         <div class="form">
             <h2>Login Here</h2>
-            <input type="email" name="email" placeholder="Enter Email Here">
-            <input type="password" name="" placeholder="Enter Pasword Here">
+            <input type="email" name="email" placeholder="Enter Email Here" required>
+            <input type="password" name="" placeholder="Enter Pasword Here" required>
             <button class="btn"><a href="#">Login</a></button>
 
             <p class="link">Don't have an account?<br>
-            <a href="#">Sign up </a> here! </a></p>
-            <p class="#">Log in with</p>
-
-            <div class="icon"> <!-- Shift + Alt + up/down arrow -->
-                <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-instgram"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-google"></ion-icon></a>
-                <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
-            </div>
+                <a href="#">Sign up </a> here!
+            </p>
         </div>
 
         <!--   Footer   -->
         <footer>
-            <p>&copy;2025 Balay na Homes. All rights reserved.</p>
+            <div class="footerContainer"> <!-- Shift + Alt + up/down arrow -->
+                <div class="footerIcons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-google-plus"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <div class="footerNav">
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Our Team</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footerLetter">
+                <p>Copyright &copy;2025; <span class="team">Balay na Homes.</span></p>
+            </div>
         </footer>
-
     </div>
-    <script src="https://https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 </html>
