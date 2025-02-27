@@ -31,6 +31,7 @@ nav ul {
     list-style: none;
     display: flex; 
     margin: auto;
+    margin-left: 25%;
 }
 
 nav ul li {
@@ -129,14 +130,6 @@ nav .logo a:hover {
 }
 
 
-.divider {
-    width: 1px;
-    background-color: #000000;
-    height: 100%; /* Make it full height of the content */
-    margin-top: -25%; /* Start divider below the navbar */
-    margin-left: 60%; /* Align to the right of content */
-}
-
 
 /*   Login Form   */
 
@@ -147,7 +140,7 @@ nav .logo a:hover {
     background: linear-gradient(130deg, rgb(95, 125, 141), rgb(85, 85, 85));
     box-shadow:  5px 5px 10px rgba(37, 37, 37, 0.5); /* Added blur and darker shadow */
     position: relative;
-    top: -85%;
+    top: -30%;
     left: 75%;
     border-radius: 25px;
     padding: 25px;
@@ -255,10 +248,11 @@ footer {
 
 .footerIcons a {
     text-decoration: none;
+    font-size: 16px;
     padding: 10px;
     background-color: white;
     margin: 10px;
-    border-radius: 50%;
+    border-radius: 30%;
 }
 
 .footerIcons a i {
