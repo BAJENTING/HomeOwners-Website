@@ -1,0 +1,30 @@
+//delete
+
+app.use(express.json());
+let exams = [];
+
+app.post('/exams', (req, res) => {
+    const newExam = req.body;
+    exams.push(newExam);
+    res.status(201).json(newExam);
+});
+
+//create
+
+const express = require('express');
+const app = express();
+
+app.get('/exams', (req, res) => {
+    res.json([{ id: 1, name: "Math Exam" }, { id: 2, name: "Science Exam" }]);
+});
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+
+//listing
+
+app.put('/exams/:id', (req, res) => {
+    const { id } = req.params;
+    const updatedExam = req.body;
+    exams = exams.map(exam => exam.id == id ? { ...exam, ...updatedExam } : exam);
+    res.json({ message: "Exam updated", updatedExam });
+});
